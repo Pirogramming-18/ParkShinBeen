@@ -2,5 +2,20 @@
 
 #header-center{
     margin: 0 auto;
-    width: 1080px
+    width: 1130px;
 }
+
+#header-search > h1{ /*자식 중에서 찾기*/
+    width: 222px;
+    display: inline-block;
+}
+
+#header-search h2{
+    display: none;
+}
+
+#header-search fieldset{
+    width: 586px;
+    display: inline-block;
+}
+/* #header-search h1 -> 자손 전부 중에서 찾기 */

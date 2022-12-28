@@ -9,6 +9,14 @@ html, body{
     font-family: Dotum, '돋움', Helvetica, "Apple SD Gothic Neo", sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
 .blind {
     position: absolute;
     clip: rect(0 0 0 0);
@@ -36,7 +44,7 @@ html, body{
 
 #header-search{
     clear: both;
-    padding-top: 2px;
+    padding-top: 30px;
 }
 
 .center-align{
@@ -279,13 +287,17 @@ main{
 }
 
 #main-centered{
-    padding: 8px 10px 0;
+    padding: 8px 10px;
     width: 1190px;
+}
+
+#main-first-block{
+    display: inline-block;
+    width: 100%;
 }
 
 #main-ad{
     float: left;
-    display: inline-block;
     width: 750px;
     height: 135px;
     background: #555;
@@ -295,12 +307,20 @@ main{
 
 #main-login{
     float: left;
-    display: inline-block;
     width: 350px;
     height: 135px;
     vertical-align: top;
     background-color: white;
     margin-bottom: 8px;
+}
+
+#main-second-block .inline-block:first-child{
+    width: 750px;
+}
+
+#main-second-block .inline-block:last-child{
+    width: 350px;
+    vertical-align: top;
 }
 
 #main-ytn{
@@ -312,6 +332,10 @@ main{
     margin-bottom: 8px;
 }
 
+#main-ytn h3, #main-ytn ol{
+    display: inline-block;
+}
+
 #main-newsstand{
     display: inline-block;
     width: 750px;
@@ -319,6 +343,32 @@ main{
     background-color: white;
     margin-right: 8px;
     margin-bottom: 8px;
+}
+
+#main-newsstand h3{
+    height: 45px;
+    border-bottom: 1px solid #f1f3f6;
+}
+
+#main-newsstand ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#main-newsstand li{
+    float: left;
+    width: 125px;
+    height: 67px;
+    border-right: 1px solid #f1f3f6;
+    border-bottom: 1px solid #f1f3f6;
+    text-align: center;
+}
+
+#main-newsstand li img{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #main-weather{
@@ -337,19 +387,29 @@ main{
     margin-bottom: 8px;
 }
 
-#main-category{
+#main-third-block,
+#main-fourth-block{
     display: inline-block;
+    width: 100%;
+}
+
+#main-category{
+    float: left;
     width: 750px;
     height: 837px;
     background: white;
+    margin-right: 8px;
+    margin-bottom: 8px;
 }
 
 #main-shopping{
-    display: inline-block;
+    float: left;
     width: 350px;
     height: 837px;
     background: white;
+    margin-bottom: 8px;
 }
+
 
 #main-event{
     display: inline-block;
@@ -357,6 +417,7 @@ main{
     height: 130px;
     background: white;
     vertical-align: top;
+    margin-right: 8px;
 }
 
 #main-third-ad{

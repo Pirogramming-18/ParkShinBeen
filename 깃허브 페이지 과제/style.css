@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.float-left {
+    float: left;
+}
+
+body{
+    background-color: rgb(43, 49, 55);
+}
+
+/* #nav{
+    position: relative;
+} */
+
+#nav-left{
+    display: inline-block;
+    width: 600px;
+    height: 40px;
+    list-style: none;
+    color: #FFF;
+    margin-left: 0;
+    font-size: 13px;
+}
+
+#nav-left li{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#nav-left li:first-child span:first-child{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url(./logo.png);
+    background-position: 0 0;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.arrow{
+    display: inline-block;
+    width: 13px;
+    height: 10px;
+    background-image: url(./arrow.png);
+    background-position: 0 0;
+    background-size: 13px 10px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+#nav-right{
+    display: inline-block;
+    width: 400px;
+    height: 40px;
+    vertical-align: middle;
+    position: relative;
+    bottom: -20px;
+    right: -200px;
+}
+
+#search-github{
+    height: 35px;
+    border-radius: 7px;
+    position: relative;
+    bottom: 7px;
+    opacity: 0.7;
+    background-color: dimgrey;
+    color: #FFF;
+}
+
+input::placeholder{
+    color:#FFF;
+}
+
+#signin{
+    background-color: rgb(43, 49, 55);
+    color: rgb(203, 203, 203);
+    border: none;
+    width: 60px;
+    height: 20px;
+    vertical-align: top;
+}
+
+#signup{
+    background-color: rgb(43, 49, 55);
+    color: rgb(203, 203, 203);
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    width: 65px;
+    height: 20px;
+    vertical-align: top;
+}

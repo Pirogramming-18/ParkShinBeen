@@ -21,16 +21,19 @@
                         </h1>
                         </a> <!-- 주석입니다.-->
                     <h2 class="blind">검색창</h2>
-                    <fieldset>
-                        <legend class="blind">검색</legend>
-                        <input />
-                        <span id="search-keyboard"></span>
-                        <span id="search-history"></span>
-                        <button>
-                            <span class="blind">검색</span>
-                            <span id="search-image"></span>
-                        </button>
-                    </fieldset>
+                    <form class="inline-block" action="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=">
+                        <fieldset>
+                            <legend class="blind">검색</legend>
+                            <input />
+                            <span id="search-keyboard"></span>
+                            <span id="search-history"></span>
+                            <button type="submit"></button>
+                            <button>
+                                <span class="blind">검색</span>
+                                <span id="search-image"></span>
+                            </button>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </header>
@@ -84,9 +87,6 @@
                             <span class="rank-title">제로초</span>
                         </li>
                     </ul>
-                    <div id="z-example">
-                        <div id="z-inner"></div>
-                    </div>
                 </div>
                 <ul id="nav-menu">
                     <li><a href=""><span></span><span class="blind">카페</span></a></li>
@@ -117,7 +117,17 @@
                 <div id="main-first-block">
                     <div id="main-ad"></div>
                     <div id="main-login">
-                        <h3>로그인</h3>
+                        <h3 class="blind">로그인</h3>
+                        <div class="login-wrapper">
+                            <span class="login-text">네이버를 더 안전하고 편리하게 이용하세요.</span>
+                            <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com">
+                                <span class="blind">NAVER 로그인</span>
+                                <span class="login-image"></span>
+                            </a>
+                            <a href="https://nid.naver.com/user2/V2Join?m=agree&lang=ko_KR&cpno=", 
+                            class="login-signup">회원가입
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div id="main-second-block">

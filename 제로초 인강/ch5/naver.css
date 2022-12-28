@@ -91,7 +91,7 @@ header{
     padding: 0;
     outline: 0;
     vertical-align: top;
-    width: 444px;
+    width: 470px;
     height: 24px;
     display: inline-block;
 }
@@ -105,6 +105,28 @@ header{
     position: absolute;
     right: -2px;
     top: -2px;
+}
+
+#search-keyboard{
+    background-image: url(./sp_search.png);
+    background-repeat: no-repeat;
+    background-position: -33px -60px;
+    width: 20px;
+    height: 12px;
+    display: inline-block;
+    margin: 8px 6px 6px -10px;
+    vertical-align: middle;
+}
+
+#search-history{
+    background-image: url(./sp_search.png);
+    background-repeat: no-repeat;
+    background-position: -87px -60px;
+    width: 10px;
+    height: 5px;
+    display: inline-block;
+    margin: 8px 6px 6px -5px;
+    vertical-align: middle;
 }
 
 #search-image{
@@ -172,6 +194,62 @@ nav li:nth-child(5) span:first-child {
 nav li:nth-child(6) span:first-child {
     width: 25px;
     background-position: -70px -285px;
+}
+
+nav li:nth-child(7) span:first-child {
+    width: 35px;
+    background-position: -125px -130px;
+}
+
+
+nav li:nth-child(8) span:first-child {
+    width: 26px;
+    background-position: -279px -208px;
+}
+
+nav li:nth-child(9) span:first-child {
+    width: 26px;
+    background-position: -128px -104px;
+}
+
+nav li:nth-child(10) span:first-child {
+    width: 26px;
+    background-position: -36px -259px;
+}
+
+nav li:nth-child(11) span:first-child {
+    width: 39px;
+    background-position: -151px -156px;
+}
+
+nav li:nth-child(12) span:first-child {
+    width: 26px;
+    background-position: -279px -130px;
+}
+
+nav li:nth-child(13) span:first-child {
+    width: 29px;
+    background-position: -234px -233px;
+}
+
+nav li:nth-child(14) span:first-child {
+    width: 26px;
+    background-position: -72px -259px;
+}
+
+nav li:nth-child(15) span:first-child {
+    width: 13px;
+    background-position: -140px -78px;
+}
+
+nav li:nth-child(16) span:first-child {
+    width: 26px;
+    background-position: -279px 0;
+}
+
+nav li.more:first-child span:first-child {
+    width: 55px;
+    background-position: 0 -104px;
 }
 
 .nav-divider{

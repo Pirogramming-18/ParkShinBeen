@@ -13,9 +13,23 @@
     width: 1130px;
 }
 
-#header-search > h1{ /*자식 중에서 찾기*/
+#header-search h1{ /*자식 중에서 찾기*/
     width: 222px;
+    height: 52px;
     display: inline-block;
+    background-image: url(./sp_main.png);
+    background-position: 1px -157px;
+    background-size: 435px 425px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+#header-search a{
+    text-decoration: none;
+}
+
+#header-search h1 span{
+    display: none;
 }
 
 #header-search h2{
@@ -23,7 +37,12 @@
 }
 
 #header-search fieldset{
-    width: 586px;
+    margin-left: 20px;
+    margin-right: 0;
+    width: 552px;
+    height: 24px;
+    border: 2px 2px;
+    padding: 12px 0 12px 10px;  
     display: inline-block;
 }
 /* #header-search h1 -> 자손 전부 중에서 찾기 */

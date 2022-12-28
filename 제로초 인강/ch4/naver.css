@@ -98,10 +98,14 @@ nav ul{
     list-style: none;
 }
 
+nav li{
+    display: inline-block;
+}
+
 nav li span:first-child {
     height: 16px;
     display: inline-block;
-    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
+    background-image: url(./sp_nav.png);
     background-repeat: no-repeat;
     margin-left: 14px;
 }

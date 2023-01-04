@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stop Watch</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
     <script src="https://kit.fontawesome.com/6fbcf91afd.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -16,9 +15,9 @@
         </div>
         <div class="main">
             <div class="clock">
-                <span>00</span>
+                <span class="sec">00</span>
                 <span>:</span>
-                <span>00</span>
+                <span class="msec">00</span>
             </div>
             <div class="buttons">
                 <button type="button" class="clockBtn start">start</button>
@@ -37,65 +36,9 @@
                     <i class="fa-solid fa-trash"></i>
                 </button>
             </div>
-            <ul class="laps">
-                <li class="lap">
-                    <button type="button" class="select selectBtn iconBtn">
-                        <i class="fa-regular fa-circle"></i>
-                    </button>
-                    <span class="sec">00</span>
-                    <span>:</span>
-                    <span class="msec">00</span>
-                </li>
-                <li class="lap">
-                    <button type="button" class="select selectBtn iconBtn">
-                        <i class="fa-regular fa-circle"></i>
-                    </button>
-                    <span class="sec">00</span>
-                    <span>:</span>
-                    <span class="msec">00</span>
-                </li>
-                <li class="lap">
-                    <button type="button" class="select selectBtn iconBtn">
-                        <i class="fa-regular fa-circle"></i>
-                    </button>
-                    <span class="sec">00</span>
-                    <span>:</span>
-                    <span class="msec">00</span>
-                </li>
-                <li class="lap">
-                    <button type="button" class="select selectBtn iconBtn">
-                        <i class="fa-regular fa-circle"></i>
-                    </button>
-                    <span class="sec">00</span>
-                    <span>:</span>
-                    <span class="msec">00</span>
-                </li>
-                <li class="lap">
-                    <button type="button" class="select selectBtn iconBtn">
-                        <i class="fa-regular fa-circle"></i>
-                    </button>
-                    <span class="sec">00</span>
-                    <span>:</span>
-                    <span class="msec">00</span>
-                </li>
-                <li class="lap">
-                    <button type="button" class="select selectBtn iconBtn">
-                        <i class="fa-regular fa-circle"></i>
-                    </button>
-                    <span class="sec">00</span>
-                    <span>:</span>
-                    <span class="msec">00</span>
-                </li>
-                <li class="lap">
-                    <button type="button" class="select selectBtn iconBtn">
-                        <i class="fa-regular fa-circle"></i>
-                    </button>
-                    <span class="sec">00</span>
-                    <span>:</span>
-                    <span class="msec">00</span>
-                </li>
-            </ul>
+            <ul class="laps"></ul>
         </div>
     </section>
+    <script src="./script.js"></script>
 </body>
 </html>

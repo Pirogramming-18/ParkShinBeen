@@ -60,7 +60,7 @@
 }
 
 .clockBtn:active,
-.clearBtn:active{
+.clear:active{
     transform: scale(0.9);
 }
 

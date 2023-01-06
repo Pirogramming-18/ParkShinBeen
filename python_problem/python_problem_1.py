@@ -10,6 +10,9 @@ while True:
     else:
         go = int(go)
         if 1 <= go <= 3:
+            for i in range(go):
+                num += 1
+                print("playerA :", num)
             break
         else:
             print("1,2,3 중 하나를 입력하세요")

@@ -1,7 +1,18 @@
+def printPlayer(player):
+    if player:
+        print("playerA", end=' ')
+    else:
+        print("playerB", end=' ')
+
+
+def printWinner(player):
+    printPlayer(player)
+    print("win!")
+
+
 num = 0
 go = 0
 player = False
-
 while num < 31:
     while True:
         go = input("부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :")
@@ -21,9 +32,9 @@ while num < 31:
 
     for i in range(go):
         num += 1
-        if player:
-            print("playerA :", num)
-        else:
-            print("playerB :", num)
+        printPlayer(player)
+        print(":", num)
         if num == 31:
             break
+
+printWinner(not player)

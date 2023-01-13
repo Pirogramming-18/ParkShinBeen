@@ -1,0 +1,46 @@
+.order-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.order-btn{
+    margin-left: 10px;
+}
+
+.list-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 50px;
+}
+
+.post-box{
+    background-color: rgb(242, 242, 242);
+    margin: 20px 15px;
+    padding: 20px 20px;
+    width: 180px;
+    /* width: 180px; */
+}
+
+.post-box h2{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+li{
+    display: flex;
+}
+
+li{
+    display: flex;
+}
+
+li p{
+    margin: 5px 0;
+}
+
+.list-category{
+    margin-right: 5px;
+    color: rgb(129, 129, 129);
+}

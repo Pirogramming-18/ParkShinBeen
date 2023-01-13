@@ -4,8 +4,16 @@ from server.apps.posts.models import Post
 
 def posts_list(request, *args, **kwargs):
     posts = Post.objects.all()
+    order = request.GET.get("order")
+    if order:
+        posts = Post.objects.order_by(order)
 
-    return render(request, 'posts/posts_list.html', {"posts": posts})
+    hours = [post.running_time // 60 for post in posts]
+    mins = [post.running_time % 60 for post in posts]
+    posts_and_times = zip(posts, hours, mins)
+
+    order_mode = [("", "등록 순"), ("title", "제목 빠른 순"), ("-title", "제목 느린 순"), ("-rate", "별점 높은 순"), ("rate", "별점 낮은 순"), ("-running_time", "상영 시간 긴 순"), ("running_time", "상영 시간 짧은 순")]
+    return render(request, 'posts/posts_list.html', {"posts_and_times": posts_and_times, "order_mode": order_mode, "order": order})
 
 def posts_detail(request, pk, *args, **kwargs):
     post = Post.objects.all().get(id=pk)

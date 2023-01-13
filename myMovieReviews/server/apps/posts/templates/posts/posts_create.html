@@ -9,7 +9,7 @@
     <div class="wrap">
         <div class="edit-container">
             <div class="edit-title">
-                <h1>Movie review</h1>
+                <h1><span class="logo-highlight">Movie</span>review</h1>
             </div>
             <form action="/posts/create" method="post" class="edit-main">
                 {% csrf_token %}
@@ -42,7 +42,7 @@
                     </li>
                     <li>
                         <p>리뷰: </p>
-                        <textarea name="review" id="" cols="70" rows="10"></textarea>
+                        <textarea name="review" id="" cols="70" rows="5"></textarea>
                     </li>
                     <li>
                         <p>감독: </p>

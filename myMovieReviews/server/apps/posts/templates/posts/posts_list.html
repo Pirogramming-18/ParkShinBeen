@@ -1,17 +1,52 @@
 {% extends 'posts/base.html' %}
+{% load static %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'css/posts_list.css' %}">
 {% endblock %}
 
 
 {% block content %}
-    {% for post in posts %}
-    <a href="/posts/{{ post.pk }}"><h2>{{ post.title }}</h2></a>
-    <ul>
-        <li>개봉년도 {{ post.year }}</li>
-        <li>장르 {{ post.get_genre_display }}</li>
-        <li>별점 {{ post.rate }}</li>
-    </ul>
-    <hr />
-    {% endfor %}
+    <div>
+        <form action="/" method="get" class="order-form">
+            {% csrf_token %}
+            <select name="order">
+                {% for orders in order_mode %}
+                {% if order == orders.0 %}
+                    <option value="{{ orders.0 }}" selected>{{ orders.1 }}</option>
+                {% else %}
+                <option value="{{ orders.0 }}">{{ orders.1 }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <div class="order-btn">
+                <input type="submit" value="Sort" />
+            </div>
+        </form>
+    </div>
+    <div class="list-container">
+        {% for post, hour, min in posts_and_times %}
+        <div class="post-box">
+            <a href="/posts/{{ post.pk }}"><h2>{{ post.title }}</h2></a>
+            <ul>
+                <li>
+                    <p class="list-category">개봉년도</p>
+                    <p class="list-content">{{ post.year }}</p>
+                </li>
+                <li>
+                    <p class="list-category">장르</p>
+                    <p class="list-content">{{ post.get_genre_display }}</p>
+                </li>
+                <li>
+                    <p class="list-category">상영 시간</p>
+                    <p class="list-content">{{ hour }}시간 {{ min }}분</p>
+                </li>
+                <li>
+                    <p class="list-category">별점</p>
+                    <p class="list-content">{{ post.rate }}</p>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

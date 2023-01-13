@@ -12,6 +12,7 @@ h1{
     position: fixed;
     top: 0;
     width: 100%;
+    background-color: white;
 }
 
 .header-container{
@@ -28,7 +29,7 @@ h1{
     width: 100%;
 }
 
-#logo-highlight{
+.logo-highlight{
     color: rgb(248, 38, 94);
     margin-left: 3px;
     margin-right: 3px;
@@ -41,5 +42,5 @@ h1{
 }
 
 body{
-    padding-top: 100px;
+    padding-top: 72px;
 }

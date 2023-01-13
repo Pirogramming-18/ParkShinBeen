@@ -23,13 +23,21 @@
     /* width: 180px; */
 }
 
+.poster{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.poster img{
+    width: 145px;
+}
+
 .post-box h2{
     font-size: 18px;
     font-weight: bold;
-}
-
-li{
-    display: flex;
+    margin-bottom: 10px;
 }
 
 li{

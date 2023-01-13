@@ -16,6 +16,7 @@ class Post(models.Model):
         ('SP','스포츠'),
         ('FA','판타지'),
         ('MU','음악'),
+        ('DR', '드라마'),
     )
 
     title = models.CharField(max_length=64)
@@ -26,3 +27,4 @@ class Post(models.Model):
     rate = models.FloatField()
     running_time = models.IntegerField()
     review = models.TextField()
+    image = models.CharField(max_length=512, default='https://ssl.pstatic.net/static/movie/2012/06/dft_img77x110_1.png')

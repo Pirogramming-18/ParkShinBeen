@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from server.apps.posts.models import Post
+from server.apps.posts.get_poster import search
+import time
 
 
 def posts_list(request, *args, **kwargs):
@@ -30,6 +32,7 @@ def posts_create(request, *args, **kwargs):
             rate = request.POST['rate'],
             running_time = request.POST['running_time'],
             review = request.POST['review'],
+            image = search(request.POST['title']),
         )
         return redirect("/")
     genre_list = Post.MOVIE_GENRE
@@ -47,6 +50,8 @@ def posts_update(request, pk, *args, **kwargs):
         post.rate = request.POST['rate']
         post.running_time = request.POST['running_time']
         post.review = request.POST['review']
+        post.image = search(request.POST['title'])
+        # time.sleep(0.3)
         post.save()
         return redirect(f"/posts/{post.id}")
 

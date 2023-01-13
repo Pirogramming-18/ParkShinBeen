@@ -9,7 +9,7 @@ def posts_list(request, *args, **kwargs):
 
 def posts_detail(request, pk, *args, **kwargs):
     post = Post.objects.all().get(id=pk)
-    return render(request, "posts/posts_detail.html", {"post": post})
+    return render(request, "posts/posts_detail.html", {"post": post, "hour": post.running_time // 60, "min": post.running_time % 60})
 
 def posts_create(request, *args, **kwargs):
     if request.method == "POST":

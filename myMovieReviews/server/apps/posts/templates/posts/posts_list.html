@@ -9,7 +9,7 @@
     <a href="/posts/{{ post.pk }}"><h2>{{ post.title }}</h2></a>
     <ul>
         <li>개봉년도 {{ post.year }}</li>
-        <li>장르 {{ post.genre }}</li>
+        <li>장르 {{ post.get_genre_display }}</li>
         <li>별점 {{ post.rate }}</li>
     </ul>
     <hr />

@@ -37,11 +37,15 @@ li{
 li p{
     margin: 0 10px 0 0;
     font-weight: bold;
-    padding-top: 3px;
+    padding-top: 7px;
 }
 
 li input{
     height: 25px;
+}
+
+.genre-select{
+    height: 31px;
 }
 
 .save-btn{

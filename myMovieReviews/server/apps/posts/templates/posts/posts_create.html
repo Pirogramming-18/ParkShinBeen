@@ -24,8 +24,13 @@
                         <input name="year" />
                     </li>
                     <li>
-                        <p>장르: </p> 
-                        <input name="genre" />
+                        <p>장르: </p>
+                        <select name="genre" class="genre-select">
+                            <option value="none">--------</option>
+                            {% for genres in genre_list %}
+                            <option value="{{ genres.0 }}">{{ genres.1 }}</option>
+                            {% endfor %}
+                        </select>
                     </li>
                     <li>
                         <p>별점: </p>
@@ -37,7 +42,6 @@
                     </li>
                     <li>
                         <p>리뷰: </p>
-                        <br />
                         <textarea name="review" id="" cols="70" rows="10"></textarea>
                     </li>
                     <li>

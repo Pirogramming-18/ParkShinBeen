@@ -24,10 +24,12 @@ def posts_create(request, *args, **kwargs):
             review = request.POST['review'],
         )
         return redirect("/")
-    return render(request, 'posts/posts_create.html')
+    genre_list = Post.MOVIE_GENRE
+    return render(request, 'posts/posts_create.html', {"genre_list": genre_list})
 
 def posts_update(request, pk, *args, **kwargs):
     post = Post.objects.get(id=pk)
+    genre_list = Post.MOVIE_GENRE
     if request.method == "POST":
         post.title = request.POST['title']
         post.year = request.POST['year']
@@ -40,7 +42,7 @@ def posts_update(request, pk, *args, **kwargs):
         post.save()
         return redirect(f"/posts/{post.id}")
 
-    return render(request, "posts/posts_update.html", {"post": post})
+    return render(request, "posts/posts_update.html", {"post": post, "genre_list": genre_list})
 
 def posts_delete(request, pk, *args, **kwargs):
     if request.method == "POST":

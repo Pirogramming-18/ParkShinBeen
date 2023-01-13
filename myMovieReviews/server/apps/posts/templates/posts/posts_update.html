@@ -25,7 +25,16 @@
                     </li>
                     <li>
                         <p>장르: </p> 
-                        <input name="genre" value="{{ post.genre }}" />
+                        <select name="genre" class="genre-select">
+                            <option value="none">--------</option>
+                            {% for genres in genre_list %}
+                            {% if post.genre == genres.0 %}
+                                <option value="{{ genres.0 }}" selected>{{ genres.1 }}</option>
+                            {% else %}
+                            <option value="{{ genres.0 }}">{{ genres.1 }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
                     </li>
                     <li>
                         <p>별점: </p>

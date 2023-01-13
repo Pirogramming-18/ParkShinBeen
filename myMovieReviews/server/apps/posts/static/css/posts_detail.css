@@ -12,7 +12,33 @@ body{
 }
 
 .detail-header{
-    
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.detail-title{
+    margin: 0;
+}
+
+.btns{
+    display: flex;
+    align-items: flex-end;
+}
+
+.detail-header .btn{
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.btn a{
+    text-decoration: none!important;
+    color: black;
 }
 
 ul{

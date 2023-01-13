@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
 from server.apps.posts.models import Post
 
-def hello_world(request, *args, **kwargs):
-    return render(request, 'posts/hello_world.html')
-
 
 def posts_list(request, *args, **kwargs):
     posts = Post.objects.all()
@@ -28,3 +25,12 @@ def posts_create(request, *args, **kwargs):
         )
         return redirect("/")
     return render(request, 'posts/posts_create.html')
+
+def posts_update(request, pk, *args, **kwargs):
+    pass
+
+def posts_delete(request, pk, *args, **kwargs):
+    if request.method == "POST":
+        post = Post.objects.get(id=pk)
+        post.delete()
+    return redirect("/")

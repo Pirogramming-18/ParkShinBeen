@@ -13,7 +13,13 @@
         <div class="detail-container">
             <div class="detail-header">
                 <h1 class="detail-title">{{ post.title }}</h1>
-                
+                <div class="btns">
+                    <button class="btn"><a href="/posts/{{ post.id }}/update">수정</a></button>
+                    <form action="/posts/{{ post.id }}/delete", method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="삭제" class="btn">
+                    </form>
+                </div>
             </div>
             <div class="detail-info">
                 <ul>

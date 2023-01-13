@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie reviews</title>
+    <link rel="stylesheet" href="{% static 'css/posts_detail.css' %}">
+</head>
+<body>
+    <div class="wrap">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h1 class="detail-title">{{ post.title }}</h1>
+                
+            </div>
+            <div class="detail-info">
+                <ul>
+                    <li>
+                        <p class="detail-category">개봉년도</p>
+                        <p class="detail-content">{{ post.year }}</p>
+                    </li>
+                    <li>
+                        <p class="detail-category">감독</p>
+                        <p class="detail-content">{{ post.director }}</p>
+                    </li>
+                    <li>
+                        <p class="detail-category">주연</p>
+                        <p class="detail-content">{{ post.main_actor }}</p>
+                    </li>
+                    <li>
+                        <p class="detail-category">장르</p>
+                        <p class="detail-content">{{ post.genre }}</p>
+                    </li>
+                    <li>
+                        <p class="detail-category">별점</p>
+                        <p class="detail-content">{{ post.rate }}</p>
+                    </li>
+                    <li>
+                        <p class="detail-category">러닝타임</p>
+                        <p class="detail-content">{{ post.running_time }}분</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="detail-review">
+                <p>{{ post.review }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

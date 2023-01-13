@@ -1,0 +1,58 @@
+body{
+    margin: 0;
+}
+
+.wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.edit-container{
+    display: flex;
+    background-color: rgb(242,242,242);
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 100px;
+}
+
+.edit-title{
+    display: flex;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    display: flex;
+    margin-top: 30px;
+}
+
+li p{
+    margin: 0 10px 0 0;
+    font-weight: bold;
+    padding-top: 3px;
+}
+
+li input{
+    height: 25px;
+}
+
+.save-btn{
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+}
+
+.save-btn input{
+    padding: 5px 10px;
+    background-color: white;
+    border-width: 1px;
+    border-radius: 5px;
+}

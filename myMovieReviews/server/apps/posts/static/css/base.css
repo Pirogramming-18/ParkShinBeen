@@ -1,0 +1,45 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+h1{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px 20px 30px;
+}
+
+.header::after{
+    content: "";
+    position: absolute;
+    background-color: rgb(217, 217, 217);
+    height: 1px;
+    width: 100%;
+}
+
+#logo-highlight{
+    color: rgb(248, 38, 94);
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.add-btn{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+body{
+    padding-top: 100px;
+}

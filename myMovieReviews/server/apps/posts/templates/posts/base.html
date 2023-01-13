@@ -8,8 +8,22 @@
     <title>My Movie reviews</title>
     {% block css %}
     {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
+
+    <div class="header">
+        <div class="header-container">
+            <a href="/">
+                <h1><span>my<span id="logo-highlight">Movie</span>reviews</span></h1>
+            </a>
+            <div class="add-btn">
+                <a href="/posts/create">Add a New review</a>
+            </div>
+        </div>
+    </div>
+
     {% block content %}
     {% endblock %}
 </body>

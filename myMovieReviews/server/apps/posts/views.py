@@ -27,7 +27,20 @@ def posts_create(request, *args, **kwargs):
     return render(request, 'posts/posts_create.html')
 
 def posts_update(request, pk, *args, **kwargs):
-    pass
+    post = Post.objects.get(id=pk)
+    if request.method == "POST":
+        post.title = request.POST['title']
+        post.year = request.POST['year']
+        post.director = request.POST['director']
+        post.main_actor = request.POST['main_actor']
+        post.genre = request.POST['genre']
+        post.rate = request.POST['rate']
+        post.running_time = request.POST['running_time']
+        post.review = request.POST['review']
+        post.save()
+        return redirect(f"/posts/{post.id}")
+
+    return render(request, "posts/posts_update.html", {"post": post})
 
 def posts_delete(request, pk, *args, **kwargs):
     if request.method == "POST":

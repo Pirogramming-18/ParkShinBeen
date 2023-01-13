@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie reviews</title>
+    <link rel="stylesheet" href="{% static 'css/posts_create.css' %}">
+</head>
+<body>
+    <div class="wrap">
+        <div class="edit-container">
+            <div class="edit-title">
+                <h1>Movie review</h1>
+            </div>
+            <form action="/posts/{{ post.id }}/update" method="post" class="edit-main">
+                {% csrf_token %}
+                <hr />
+                <ul>
+                    <li>
+                        <p>제목: </p>
+                        <input name="title" value="{{ post.title }}" />
+                    </li>
+                    <li>
+                        <p>개봉년도: </p> 
+                        <input name="year" value="{{ post.year }}" />
+                    </li>
+                    <li>
+                        <p>장르: </p> 
+                        <input name="genre" value="{{ post.genre }}" />
+                    </li>
+                    <li>
+                        <p>별점: </p>
+                        <input name="rate" value="{{ post.rate }}" />
+                    </li>
+                    <li>
+                        <p>러닝타임: </p>
+                        <input name="running_time" value="{{ post.running_time }}" />
+                    </li>
+                    <li>
+                        <p>리뷰: </p>
+                        <br />
+                        <textarea name="review" id="" cols="70" rows="10">{{ post.review }}</textarea>
+                    </li>
+                    <li>
+                        <p>감독: </p>
+                        <input name="director" value="{{ post.director }}" />
+                    </li>
+                    <li>
+                        <p>주연: </p>
+                        <input name="main_actor" value="{{ post.main_actor }}" />
+                    </li>
+                </ul>
+                <div class="save-btn">
+                    <input type="submit" value="Save" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

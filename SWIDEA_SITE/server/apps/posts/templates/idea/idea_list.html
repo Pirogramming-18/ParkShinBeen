@@ -1,0 +1,25 @@
+{% extends 'idea/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/idea_list.css' %}">
+{% endblock %}
+
+{% block intro %}
+<span class="title">Idea List</span>
+<span class="description">나의 아이디어를 잊지 말고 기록해보세요</span>
+{% endblock %}
+
+{% block main %}
+    {% for idea, tool in ideas_and_devtool %}
+        {% if idea.image %}
+            <p>
+                <img src="{{ idea.image.url }}" style="width: 100px; height: 100px;">
+            </p>
+        {% endif %}
+        <a href="{% url 'posts:idea_detail' idea.pk %}">{{ idea.title }}</a>
+        {{ tool.name }}
+        {{ idea.interest }}
+        <br />
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'idea/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/create_form.css' %}">
+{% endblock %}
+
+{% block intro %}
+<span class="title">DevTool Register</span>
+<span class="description">개발툴 등록 페이지 입니다. 자신이 다룰 수 있는 개발툴을 등록해 보세요.</span>
+{% endblock %}
+
+{% block main %}
+<form action="{% url 'posts:tool_create' %}" method="post" class="tool-form">
+    {% csrf_token %}
+    <ul>
+        <li>
+            <label for="tool-name">이름:</label>
+            <input name="name" id="tool-name" />
+        </li>
+        <li>
+            <label for="tool-kind">종류:</label>
+            <input name="kind" id="tool-kind" />
+        </li>
+        <li>
+            <label for="tool-content">개발툴 설명:</label>
+            <textarea name="content" id="tool-content" cols="50" rows="8"></textarea>
+        </li>
+    </ul>
+    <div class="btn-container">
+        <input type="submit" value="SUBMIT" class="submit-btn"/>
+    </div>
+</form>
+{% endblock %}

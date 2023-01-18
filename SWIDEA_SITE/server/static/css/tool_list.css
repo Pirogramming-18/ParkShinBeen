@@ -1,0 +1,44 @@
+.tool-list-container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+ul{
+    margin-top: 30px;
+}
+
+ul hr{
+    width: 75vw;
+}
+
+li{
+    display: flex;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 25px;
+}
+
+li p{
+    display: flex;
+    align-items: center;
+}
+
+.tool-name a{
+    color: black;
+}
+
+.tool-name{
+    width: 15%;
+    font-weight: bold;
+}
+
+.tool-kind{
+    font-weight: bold;
+    color: white;
+    width: 25%;
+}
+
+.tool-content{
+    width: 60%;
+}

@@ -1,0 +1,41 @@
+{% extends 'idea/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/idea_detail.css' %}">
+{% endblock %}
+
+{% block intro %}
+<span class="title">Idea Detail</span>
+<span class="description">아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요.</span>
+{% endblock %}
+
+{% block main %}
+<div>
+    {% if idea.image %}
+    <img src="{{ idea.image.url }}" style="width: 100px; height: 100px;">
+    {% endif %}
+    <hr />
+    <br />
+    {{ idea.title }}
+    <hr />
+    <br />
+    {{ idea.interest }}
+    <hr />
+    <br />
+    <a href="{% url 'posts:tool_detail' idea.devtool.id %}">{{ idea.devtool.name }}</a>
+    <hr />
+    <br />
+    {{ idea.content }}
+    <hr />
+    <br />
+    <div class="btns">
+        <form action="{% url 'posts:idea_delete' idea.pk %}" method="post">
+            {% csrf_token %}    
+            <input type="submit" value="삭제" class="btn">
+        </form>
+        <button class="btn"><a href="{% url 'posts:idea_list' %}">목록</a></button>
+        <button class="btn"><a href="{% url 'posts:idea_update' idea.pk %}">수정</a></button>
+    </div>
+</div>
+{% endblock %}

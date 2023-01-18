@@ -3,10 +3,10 @@ h1, h2, h3, h4, h5, h6, p, span, a{
 }
 
 body{
-    background-image: url(https://www.customerparadigm.com/wp-content/uploads/2019/11/code-featured-splash-background-blur.jpg);
+    background-image: url("../image/bg_img.jpg");
     background-repeat: no-repeat;
-    height: 100vh;
-    background-size: cover;
+    object-fit: fill;
+    padding-top: 65px;  
 }
 
 .navbar{
@@ -54,4 +54,36 @@ body{
     background-color: transparent;
     font-size: 15px;
     font-weight: bold;
+}
+
+.body-container{
+    background-color: rgba(126, 126, 126, 0.7);
+    width: 90%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto 0 auto;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.title{
+    color: rgb(220, 250, 151);
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description{
+    color: white;
+    font-size: 14px;
+}
+
+.content-container{
+    width: 100%;
 }

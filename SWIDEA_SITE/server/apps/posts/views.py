@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from server.apps.posts.models import *
+from .forms import IdeaForm
 
 def tool_create(request, *args, **kwargs):
     if request.method == "POST":
@@ -57,22 +58,6 @@ def idea_list(request, *args, **kwargs):
     }
     return render(request, 'idea/idea_list.html', context=context)
 
-def idea_create(request, *args, **kwargs):
-    if request.method == "POST":
-        idea = Idea.objects.create(
-            title=request.POST["title"],
-            image=request.FILES.get("image"),
-            content=request.POST["content"],
-            interest=request.POST["interest"],
-            devtool=Tool.objects.get(id=request.POST["devtool"]),
-        )
-        return redirect(f"/idea/{idea.id}")
-    tools = Tool.objects.all()
-    context = {
-        "tools": tools,
-    }
-    return render(request, "idea/idea_create.html", context=context)
-
 def idea_detail(request, pk, *args, **kwargs):
     idea = Idea.objects.all().get(id=pk)
     context = {
@@ -80,25 +65,30 @@ def idea_detail(request, pk, *args, **kwargs):
     }
     return render(request, "idea/idea_detail.html", context=context)
 
-def idea_update(request, pk, *args, **kwargs):
-    idea = Idea.objects.get(id=pk)
-    if request.method == "POST":
-        idea.title=request.POST["title"]
-        idea.image=request.FILES.get("image")
-        idea.content=request.POST["content"]
-        idea.interest=request.POST["interest"]
-        idea.devtool=Tool.objects.get(id=request.POST["devtool"])
-        idea.save()
-        return redirect(f"/idea/{idea.id}")
-    tools = Tool.objects.all()
-    context={
-        "idea": idea,
-        "tools": tools,
-    }
-    return render(request, "idea/idea_update.html", context=context)
-
 def idea_delete(request, pk, *args, **kwargs):
     if request.method == "POST":
         idea = Idea.objects.get(id=pk)
         idea.delete()
     return redirect("/")
+
+def idea_create(request, *args, **kwargs):
+    if request.method == "POST":
+        form = IdeaForm(request.POST, request.FILES)
+        if form.is_valid():
+            idea = form.save()
+            return redirect(f"/idea/{idea.id}")
+        else:
+            return redirect('/idea_create')
+    else:
+        form = IdeaForm()
+
+    return render(request, 'idea/idea_create.html', {'form':form})
+
+def idea_update(request, pk, *args, **kwargs):
+	idea = Idea.objects.get(id=pk)
+	form = IdeaForm(request.POST or None, request.FILES or None, instance=idea)
+	if form.is_valid():
+		form.save()
+		return redirect(f'/idea/{idea.id}')
+
+	return render(request, 'idea/idea_update.html',{'idea': idea,'form':form})

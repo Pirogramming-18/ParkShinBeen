@@ -13,37 +13,7 @@
 {% block main %}
 <form action="{% url 'posts:idea_update' idea.pk %}" method="post" class="tool-form" enctype="multipart/form-data">
     {% csrf_token %}
-    <ul>
-        <li>
-            <label for="idea-title">아이디어명:</label>
-            <input name="title" id="idea-title" value="{{ idea.title }}" />
-        </li>
-        <li>
-            <label for="idea-image">Image:</label>
-            <input name="image" type="file" id="idea-image" />
-        </li>
-        <li>
-            <label for="idea-content">아이디어 설명:</label>
-            <textarea name="content" id="idea-content" cols="50" rows="5">{{ idea.content }}</textarea>
-        </li>
-        <li>
-            <label for="idea-interest">아이디어 관심도:</label>
-            <input name="interest" id="idea-interest"  value="{{ idea.interest }}" />
-        </li>
-        <li>
-            <label for="idea-devtool">예상 개발툴:</label>
-            <select name="devtool" class="tool-select" id="idea-devtool">
-                <option value="none">--------</option>
-                {% for tool in tools %}
-                {% if idea.devtool.id == tool.id %}
-                    <option value="{{ tool.id }}" selected>{{ tool.name }}</option>
-                {% else %}
-                <option value="{{ tool.id }}">{{ tool.name }}</option>
-                {% endif %}
-                {% endfor %}
-            </select>
-        </li>
-    </ul>
+    {{ form.as_p }}
     <div class="btn-container">
         <input type="submit" value="SUBMIT" class="submit-btn"/>
     </div>

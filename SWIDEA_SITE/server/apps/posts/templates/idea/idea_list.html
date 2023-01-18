@@ -20,6 +20,8 @@
         <a href="{% url 'posts:idea_detail' idea.pk %}">{{ idea.title }}</a>
         {{ tool.name }}
         {{ idea.interest }}
+        <button>+</button>
+        <button>-</button>
         <br />
     {% endfor %}
 {% endblock %}

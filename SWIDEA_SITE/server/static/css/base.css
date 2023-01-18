@@ -1,0 +1,57 @@
+h1, h2, h3, h4, h5, h6, p, span, a{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+    background-image: url(https://www.customerparadigm.com/wp-content/uploads/2019/11/code-featured-splash-background-blur.jpg);
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+
+.navbar{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar::after{
+    content: "";
+    position: absolute;
+    background-color: rgb(129, 129, 129);
+    height: 1px;
+    width: 100%;
+    bottom: -1px;
+}
+
+.logo{
+    margin-left: 70px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar a{
+    color: white;
+}
+
+.logo span{
+    color: rgb(220, 250, 151);
+}
+
+.nav-btns{
+    margin-right: 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.nav-btn{
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: bold;
+}

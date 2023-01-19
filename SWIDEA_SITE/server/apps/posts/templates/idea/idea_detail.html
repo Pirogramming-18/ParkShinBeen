@@ -12,6 +12,14 @@
 
 {% block main %}
 <div>
+    <form action="{% url 'posts:like' idea.pk %}">
+        {% if user in idea.like_users.all %}
+        <button><i class="fa-solid fa-star"></i></button>
+        {% else %}
+        <button><i class="fa-regular fa-star"></i></button>
+        {% endif %}
+    </form>
+    <br />
     {% if idea.image %}
     <img src="{{ idea.image.url }}" style="width: 100px; height: 100px;">
     {% endif %}

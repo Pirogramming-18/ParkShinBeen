@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from server.apps.posts.models import *
 from .forms import IdeaForm
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
 
 def tool_create(request, *args, **kwargs):
     if request.method == "POST":
@@ -49,12 +51,15 @@ def tool_delete(request, pk, *args, **kwargs):
 
 def idea_list(request, *args, **kwargs):
     ideas = Idea.objects.all()
+
     devtools = []
     for idea in ideas:
         devtools.append(Tool.objects.get(id=idea.devtool.id))
     ideas_and_devtool = zip(ideas, devtools)
+    
     context = {
-        "ideas_and_devtool": ideas_and_devtool
+        "ideas_and_devtool": ideas_and_devtool,
+        "ideas": ideas,
     }
     return render(request, 'idea/idea_list.html', context=context)
 
@@ -92,3 +97,25 @@ def idea_update(request, pk, *args, **kwargs):
 		return redirect(f'/idea/{idea.id}')
 
 	return render(request, 'idea/idea_update.html',{'idea': idea,'form':form})
+
+def like(request, pk):
+    star = get_object_or_404(Idea, id=pk)
+    if request.user in star.like_users.all():
+        #좋아요 취소
+        star.like_users.remove(request.user)
+    else:
+        star.like_users.add(request.user)
+    
+    return redirect('/')
+
+def up(request, pk):
+    idea = Idea.objects.get(id=pk)
+    idea.interest += 1
+    idea.save()
+    return redirect('/')
+
+def down(request, pk):
+    idea = Idea.objects.get(id=pk)
+    idea.interest -= 1
+    idea.save()
+    return redirect('/')

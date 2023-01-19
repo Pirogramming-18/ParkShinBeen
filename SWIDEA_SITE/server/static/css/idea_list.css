@@ -1,0 +1,15 @@
+.idea-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px 30px;
+}
+
+.idea{
+    display: flex;
+    flex-direction: column;
+}
+
+.interest-btn{
+    display: flex;
+}

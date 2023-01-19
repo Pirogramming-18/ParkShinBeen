@@ -11,7 +11,16 @@
 {% endblock %}
 
 {% block main %}
+    <div class="idea-list">
     {% for idea, tool in ideas_and_devtool %}
+    <div class="idea">
+        <form action="{% url 'posts:like' idea.pk %}">
+            {% if user in idea.like_users.all %}
+            <button><i class="fa-solid fa-star"></i></button>
+            {% else %}
+            <button><i class="fa-regular fa-star"></i></button>
+            {% endif %}
+        </form>
         {% if idea.image %}
             <p>
                 <img src="{{ idea.image.url }}" style="width: 100px; height: 100px;">
@@ -19,9 +28,16 @@
         {% endif %}
         <a href="{% url 'posts:idea_detail' idea.pk %}">{{ idea.title }}</a>
         {{ tool.name }}
-        {{ idea.interest }}
-        <button>+</button>
-        <button>-</button>
-        <br />
-    {% endfor %}
+        <div class="interest-btn">
+            <form action="{% url 'posts:down' idea.pk %}" class="btn">
+                <button>-</button>
+            </form>
+            {{ idea.interest }}
+            <form action="{% url 'posts:up' idea.pk %}" class="btn">
+                <button>+</button>
+            </form>
+        </div>
+    </div>
+        {% endfor %}
+    </div>
 {% endblock %}

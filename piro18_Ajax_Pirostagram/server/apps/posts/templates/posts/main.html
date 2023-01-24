@@ -13,7 +13,7 @@
 <body>
     <a href="{% url 'posts:create' %}">글 작성하기</a>
     <div class="page">
-        {% for post in posts %}
+        {% for post, comments in post_and_comment %}
         <div class="container post-id-{{ post.id }}">
             <div class="account">
                 <span>{{ post.user }}</span>
@@ -36,9 +36,16 @@
             {% endif %}
             <span>{{ post.content }}</span>
             <hr />
-            <div class="comment">
-                
+            <div class="comment-container comment-for-{{ post.id }}">
+                {% for comment in comments %}
+                <div class="comment comment-id-{{ comment.id }}">
+                    <p>{{ comment.content }}</p>
+                    <input type="button" class="delete-comment" value="삭제" onclick="onClickDeleteComment({{ post.id }}, {{ comment.id }})" />
+                </div>
+                {% endfor %}
             </div>
+            <textarea class="comment-content-{{ post.id }}" cols="25" rows="2" placeholder="댓글 입력"></textarea>
+            <input type="button" class="create-comment" value="게시" onclick="onClickCreateComment({{ post.id }})" />
         </div>
         {% endfor %}
     </div>
@@ -69,6 +76,52 @@
                         <span class="like-count">좋아요 ${Number(num)}개</span>
                         `
                     }
+                }
+            }
+        };
+
+        const requestComment = new XMLHttpRequest();
+
+        const onClickCreateComment = (id) =>{
+            const url = "/comment_ajax/";
+            content = document.querySelector(`.comment-content-${id}`).value;
+            requestComment.open("POST", url, true);
+            requestComment.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            requestComment.send(JSON.stringify({id:id, content:content}));
+        };
+
+        requestComment.onreadystatechange = () => {
+            if(requestComment.readyState === XMLHttpRequest.DONE){
+                if(requestComment.status < 400){
+                    const {post_id, comment_id, content} = JSON.parse(requestComment.response);
+                    document.querySelector(`.comment-content-${post_id}`).value = '';
+                    const element = document.querySelector(`.comment-for-${post_id}`);
+                    const originHTML = element.innerHTML;
+                    element.innerHTML = originHTML + `
+                    <div class="comment comment-id-${comment_id}">
+                        <p>${content}</p>
+                    <input type="button" class="delete-comment" value="삭제" onclick="onClickDeleteComment(${post_id}, ${comment_id})" />
+                    </div>
+                    `
+                }
+            }
+        };
+
+        const requestDelete = new XMLHttpRequest();
+
+        const onClickDeleteComment = (post_id, comment_id) => {
+            const url = "/delete_ajax/";
+            requestDelete.open("POST", url, true);
+            requestDelete.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            requestDelete.send(JSON.stringify({post_id:post_id, comment_id:comment_id}));
+        };
+
+        requestDelete.onreadystatechange = () => {
+            if(requestDelete.readyState === XMLHttpRequest.DONE){
+                if(requestDelete.status < 400){
+                    const {post_id, comment_id} = JSON.parse(requestDelete.response);
+                    const comment_div = document.querySelector(`.comment-for-${post_id} .comment-id-${comment_id}`);
+                    comment_div.remove();
                 }
             }
         };

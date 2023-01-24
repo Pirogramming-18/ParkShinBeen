@@ -1,13 +1,18 @@
 .page{
     display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 .container{
     display: flex;
     flex-direction: column;
     margin-right: 20px;
+    margin-bottom: 20px;
     border: 1px solid black;
     padding: 5px;
+    width: 210px;
 }
 
 .account{
@@ -41,4 +46,22 @@ img{
 
 .container hr{
     width: 100%;
+}
+
+.comment{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.comment p{
+    word-break: break-all;
+    margin: 0;
+}
+
+.delete-comment{
+    height: 20px;
 }

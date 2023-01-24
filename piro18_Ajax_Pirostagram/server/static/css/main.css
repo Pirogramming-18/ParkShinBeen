@@ -1,0 +1,44 @@
+.page{
+    display: flex;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.account{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.heart-btn i{
+    font-size: 25px;
+    color: red;
+}
+
+.fa-heart{
+    color: red;
+}
+
+.like-count{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.container hr{
+    width: 100%;
+}

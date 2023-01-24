@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirostagram</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="https://kit.fontawesome.com/ea81cbc1a4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="{% url 'posts:create' %}">글 작성하기</a>
+    <div class="page">
+        {% for post in posts %}
+        <div class="container post-id-{{ post.id }}">
+            <div class="account">
+                <span>{{ post.user }}</span>
+                <form action="{% url 'posts:delete' post.pk %}", method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="삭제" class="btn">
+                </form>
+            </div>
+            <img src="{% static 'image/img.png' %}" />
+            {% if post.pressed %}
+            <div class="heart-btn">
+                <i class="fa-solid fa-heart" onclick="onClickLike({{ post.id }}, 'dislike')"></i>
+                <span class="like-count">좋아요 {{ post.like }}개</span>
+            </div>
+            {% else %}
+            <div class="heart-btn">
+                <i class="fa-regular fa-heart" onclick="onClickLike({{ post.id }}, 'like')"></i>
+                <span class="like-count">좋아요 {{ post.like }}개</span>
+            </div>
+            {% endif %}
+            <span>{{ post.content }}</span>
+            <hr />
+            <div class="comment">
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        const requestLike = new XMLHttpRequest();
+
+        const onClickLike = (id, type) =>{
+            const url = "/like_ajax/";
+            requestLike.open("POST", url, true);
+            requestLike.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            requestLike.send(JSON.stringify({id:id, type:type}));
+        };
+
+        requestLike.onreadystatechange = () => {
+            if(requestLike.readyState === XMLHttpRequest.DONE){
+                if(requestLike.status < 400){
+                    const {id, type, num} = JSON.parse(requestLike.response);
+                    const element = document.querySelector(`.post-id-${id} .heart-btn`);
+                    if(type == 'like'){
+                        element.innerHTML = `
+                        <i class="fa-solid fa-heart" onclick="onClickLike(${id}, 'dislike')"></i>
+                        <span class="like-count">좋아요 ${Number(num)}개</span>
+                        `
+                    }
+                    else{
+                        element.innerHTML = `
+                        <i class="fa-regular fa-heart" onclick="onClickLike(${id}, 'like')"></i>
+                        <span class="like-count">좋아요 ${Number(num)}개</span>
+                        `
+                    }
+                }
+            }
+        };
+    </script>
+</body>
+</html>
